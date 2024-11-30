@@ -33,10 +33,11 @@
   <!-- Google Maps Script -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD336Hv1xiZsRe0Zw5_BxSkfDHoD-tjMCE&libraries=places"></script>
   <script>
-    // Initialize the map
+    // Initialize the map with Map ID (for testing)
     const map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: 37.7749, lng: -122.4194 }, // San Francisco
-      zoom: 13
+      zoom: 13, 
+      mapId: '1ac9f3fac6778e15'
     });
 
     // Store data
@@ -58,6 +59,17 @@
         alert(`You clicked on ${store.name}`);
       });
     });
+
+    const infoWindow = new google.maps.InfoWindow();
+
+    marker.addListener('click', () => {
+      infoWindow.setContent(`<h3>${store.name}</h3><p>${store.address}</p>`);
+      infoWindow.open(map, marker);
+    });
+
+    const styledMap = new google.maps.StyledMapType(customStyle, { name: "Styled Map" });
+    map.mapTypes.set("styled_map", styledMap);
+    map.setMapTypeId("styled_map");
 
     // Search Box for locating places
     const input = document.getElementById('searchBox');
