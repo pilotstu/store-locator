@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "name": "Coffee Shop 1",
+      "lat": 37.7749,
+      "lng": -122.4194,
+      "address": "123 Main St, San Francisco, CA",
+      "category": "Coffee"
+    },
+    {
+      "id": 2,
+      "name": "Bakery 1",
+      "lat": 37.7849,
+      "lng": -122.4094,
+      "address": "456 Market St, San Francisco, CA",
+      "category": "Bakery"
+    }
+  ]
+  
